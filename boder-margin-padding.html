@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boder - Margin - Padding</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .invite-container{
+        padding-top: 40px;
+        background-color: antiquewhite;
+        text-align: center;
+        width: max-content;
+        padding: 40px 120px;
+        border-radius: 15px;
+    }
+    .invite__icon {
+        width: 80px;
+    }
+    .invite__title{
+        font-size: xx-large;
+        padding: 40px 0px 10px;
+    }
+    .invite__subtitle{
+        font-size: 20px;
+    }
+    .invite-form{
+        padding-top: 40px;
+    }
+    #email{
+        padding: 10px;
+        width: 200px;
+        border-radius: 8px;
+    }
+    .invite__btn{
+        margin-top:  25px ;
+        margin-bottom: 20px;
+        padding: 15px 20px;
+        border-radius: 12px;
+        background-color: rgb(3, 138, 228);
+        color: #ffffff;
+        border: 0;
+    }
+    .invite__btn:hover{
+        background-color: rgb(7, 78, 126);
+    }
+  </style>
+  <body>
+    <div class="container">
+
+        <section class="invite-container">
+          <img class="invite__icon" src="https://i.postimg.cc/cLwbCRVw/pngimg-com-email-PNG30.png" alt="email icon">
+          <h1 class="invite__title">Get the invite</h1>
+          <p class="invite__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <form class="invite-form" action="https://httpbin.org/get" method="get" target="_blank">
+            <div class="invite-field">
+              <input id="email" type="email" name="email" placeholder="Enter your email" required />
+            </div>
+            <div class="invite-actions">
+              <button type="submit" class="invite__btn">REQUEST INVITE</button>
+            </div>
+          </form>
+        </section>
+    </div>
+  </body>
+</html>

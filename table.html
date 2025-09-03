@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+  </head>
+  <style>
+    body {
+      width: 100%;
+    }
+
+    .pricing__header {
+      text-align: center;
+      font-size: xx-large;
+      font-family: monospace;
+    }
+
+    .plan-table tr > :first-child {
+      width: 32%;
+    }
+    .plan-table th {
+      font-size: x-large;
+    }
+
+    .plan-table tr:nth-child(2) > td {
+      vertical-align: top;
+    }
+    .content-table th,
+    .sharing-collaboration-table th {
+      width: 32%;
+    }
+    table {
+      width: 65%;
+      margin-inline: auto;
+      text-align: left;
+      border-collapse: collapse;
+    }
+    td {
+      width: 17%;
+      padding-right: 8px;
+    }
+    th {
+      font-size: large;
+    }
+    .plan__btn {
+      background-color: rgb(1, 178, 223);
+      text-align: center;
+      border-radius: 15px;
+      color: rgba(255, 255, 255);
+      margin: 0 14px 0 0;
+      padding: 10px 0px;
+      font-size: larger;
+    }
+    .content-table tr,
+    .sharing-collaboration-table tr {
+      height: 50px;
+    }
+    .plan__btn:hover {
+      background-color: rgb(4, 115, 134);
+      cursor: pointer;
+    }
+    .content-table tr:first-child > th,
+    .sharing-collaboration-table tr:first-child > th {
+      color: #797979;
+      font-weight: 100;
+      vertical-align: bottom;
+    }
+    .sharing-collaboration-table {
+      margin-top: 40px;
+    }
+    .content-table tr,
+    .sharing-collaboration-table tr {
+      border-bottom: 1px solid #949393;
+    }
+
+    .content-table tr:last-child,
+    .sharing-collaboration-table tr:last-child {
+      border-bottom: 0;
+    }
+  </style>
+  <body>
+    <div class="pricing">
+      <header class="pricing__header">
+        <h1 class="pricing__title">Plans and Features</h1>
+      </header>
+      <section class="pricing-plan">
+        <table class="plan-table">
+          <tr>
+            <th aria-hidden="true" class="blank"></th>
+            <th>Free</th>
+            <th>Plus</th>
+            <th>Business</th>
+            <th>Enterprise</th>
+          </tr>
+          <tr>
+            <td aria-hidden="true" class="blank"></td>
+            <td>$0 per seat/month</td>
+            <td>$10 per seat/month</td>
+            <td>$20 per seat/month</td>
+            <td><a href="">Contact us→</a></td>
+          </tr>
+          <tr>
+            <td aria-hidden="true" class="blank"></td>
+            <td><p class="plan__btn">Sign up</p></td>
+            <td><p class="plan__btn">Get started</p></td>
+            <td><p class="plan__btn">Get started</p></td>
+            <td aria-hidden="true" class="bank"></td>
+          </tr>
+        </table>
+      </section>
+      <section class="feature-compare">
+        <table class="content-table">
+          <tr>
+            <th colspan="5">Content</th>
+          </tr>
+          <tr>
+            <th>Pages & blocks</th>
+            <td>
+              Unlimited for individuals <br />
+              <span>limited for 2+ members</span>
+            </td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <th>File uploads</th>
+            <td>Up to 5 MB</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <th>Page history</th>
+            <td>7 days</td>
+            <td>30 days</td>
+            <td>90 days</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <th>Verify any page</th>
+            <td></td>
+            <td></td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+          </tr>
+          <tr>
+            <th>Offline</th>
+            <td>Choose pages to download for offline use.</td>
+            <td>Recents and Favorites auto-download for offline use.</td>
+            <td>Recents and Favorites auto-download for offline use.</td>
+            <td>Recents and Favorites auto-download for offline use.</td>
+          </tr>
+        </table>
+
+        <table class="sharing-collaboration-table">
+          <tr>
+            <th colspan="5">Sharing & collaboration</th>
+          </tr>
+          <tr>
+            <th>Guest seats</th>
+            <td>10</td>
+            <td>100</td>
+            <td>250</td>
+            <td>Starting at 250</td>
+          </tr>
+          <tr>
+            <th>Teamspaces (open & closed)</th>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+          </tr>
+          <tr>
+            <th>Teamspaces (private)</th>
+            <td></td>
+            <td></td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+          </tr>
+          <tr>
+            <th>Permission groups</th>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+            <td>&#10004;</td>
+            <td>&#10004;</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

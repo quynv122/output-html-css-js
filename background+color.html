@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS background - CSS color</title>
+  </head>
+  <style>
+    
+    .promo-banner{
+        background: url('https://i.postimg.cc/MKmnVR2d/contact-bg.jpg') 100% center / cover no-repeat;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .promo-banner__content{
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px 70px;
+        height: fit-content;
+        margin-top: 50px;
+        border-radius: 15px;
+    }
+    /* style cho tiêu đề */
+    .promo-banner__title{
+        color: aliceblue;
+        font-size: 40px;
+        margin: auto;
+    }
+
+    /* style cho đoạn mô tả */
+    .promo-banner__subtitle{
+        margin: auto;
+        color: aliceblue;
+        padding: 50px 0px 150px 0px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    /* Style cho button */
+    .promo-banner__button{
+        padding: 20px;
+        border-radius: 8px;
+        background-color: rgb(167, 71, 2);
+        color: #ffffff;
+        font-size: x-large;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+    /* Hiệu ứng hover cho button */
+    .promo-banner__button:hover{
+      background-color: rgb(206, 90, 7)
+    }
+  </style>
+  <body>
+    <section class="promo-banner">
+      <div class="promo-banner__content">
+        <h1 class="promo-banner__title">Don't miss this special offer!</h1>
+        <p class="promo-banner__subtitle">Get it now for just $10! the price will be increased after 50 downloads</p>
+        <a href="#" class="promo-banner__button">Get the latest version of Bootslander</a>
+      </div>
+    </section>
+  </body>
+</html>

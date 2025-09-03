@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    header hr {
+      width: 10rem;
+      height: 4px;
+      background-color: rgb(7, 87, 87);
+      border: none;
+    }
+    .portfolio__title {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .tabs__list {
+      display: flex;
+      padding-top: 40px;
+      list-style-type: none;
+      justify-content: center;
+      font-size: small;
+      white-space: nowrap;
+      padding-left: 0;
+    }
+    
+    .tabs__item {
+      padding: 8px 25px;
+      border-radius: 15px;
+      font-size: large;
+    }
+    .tabs__item--active {
+      background-color: rgb(5, 97, 126);
+      color: aliceblue;
+      font-weight: bold;
+    }
+
+    .portfolio-posts {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 300px 300px 300px;
+      gap: 50px;
+      justify-content: center;
+      padding-top: 60px;
+    }
+    .post-card {
+      background-color: rgb(183, 233, 233);
+      width: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .post-card:hover {
+       transform: translateY(-5px); 
+    }
+    
+    .post-card img {
+      width: 100%;
+      height: auto;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    .post-card__title {
+      margin: 0;
+      text-align: center;
+      font-size: large;
+      padding: 10px 0;
+
+    }
+  </style>
+  <body>
+    <div class="portfolio-container">
+      <header class="portfolio-header">
+        <h1 class="portfolio__title">MY PORTFILIO</h1>
+        <hr />
+      </header>
+      <div class="portfolio-tabs">
+        <ul class="tabs__list">
+          <li class="tabs__item tabs__item--active">ALL</li>
+          <li class="tabs__item">WEB APP</li>
+          <li class="tabs__item">UI/UX</li>
+          <li class="tabs__item">GRAPHICS DESIGN</li>
+          <li class="tabs__item">MOBILE APP</li>
+          <li class="tabs__item">BRANDING</li>
+          <li class="tabs__item">MARKETING</li>
+        </ul>
+      </div>
+      <div class="portfolio-posts">
+        <div class="post-card">
+          <img
+            src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg"
+            class="post-card__img"
+            alt="adasd"
+          />
+          <p class="post-card__title">basdasksaj jsadasdkj áhdjh</p>
+        </div>
+        <div class="post-card">
+          <img src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg" class="post-card__img" alt="ádasd" />
+          <p class="post-card__title">fhfgfghfhdgh</p>
+        </div>
+        <div class="post-card">
+          <img src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg" class="post-card__img" alt="ádasdasdas" />
+          <p class="post-card__title">dfdfgdgeter</p>
+        </div>
+        <div class="post-card">
+          <img src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg" class="post-card__img" alt="dfsdfafa" />
+          <p class="post-card__title">fghgtdtrzszzs</p>
+        </div>
+        <div class="post-card">
+          <img src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg" class="post-card__img" alt="rưeqrwerr" />
+          <p class="post-card__title">hghdhdfh</p>
+        </div>
+        <div class="post-card">
+          <img src="https://i.postimg.cc/Jh9mpyxY/giau-co-shutterstock-WCVI.jpg" class="post-card__img" alt="àasffaadfsasdf" />
+          <p class="post-card__title">sdfgsdfgkjsdfj</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

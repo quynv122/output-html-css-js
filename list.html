@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<style>
+    body{
+        width: 100%;
+    }
+    .popular-tag{
+        padding:200px;
+    }
+    .tag__title h1 {
+        font-size: xx-large;
+    }
+    ul{
+        list-style-type: none;
+        padding-left: 0;
+        white-space: nowrap; 
+    }
+    ul > li {
+        display: inline-block;
+        background-color: rgb(3, 83, 83);
+        padding: 1px 12px;
+        border-radius: 12px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        margin-right: 4px;
+        cursor: pointer;
+    }
+    
+
+</style>
+<body>
+    <section class="popular-tag">
+        <div class="tag__title">
+            <h1>Popular Tags</h1>
+        </div>
+        <div class="tags-list">
+            <ul class="list__tech">
+                <li>AI</li>
+                <li>Mobile & Gadgets</li>
+                <li>Cybersecurity & Privacy</li>
+            </ul>
+            <ul class="list__sports">
+                <li>Football</li>
+                <li>Basketball</li>
+                <li>Motorsports</li>
+            </ul>
+            <ul class="list__health">
+                <li>Nutrition & Diet</li>
+                <li>Fitness & Training</li>
+                <li>Mental Health & Wellness</li>
+            </ul>
+        </div>
+
+    </section>
+</body>
+</html>
