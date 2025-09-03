@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Iframs</title>
+    <style>
+      @media (max-width: 600px) {
+        .contact-container {
+          display: flex;
+          flex-direction: column;
+          
+        }
+      }
+      .contact-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .contact-address {
+        font-size: large;
+      }
+      .contact-title {
+        font-family: "Times New Roman", Times, serif;
+        font: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.1213861322091!2d105.79484631452067!3d21.013249587340734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab580f79563f%3A0x371d928498798ab8!2zMSBQLiBN4bqhYyBUaMOhaSBUw7RuZywgVHJ1bmcgSG_DoCwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1755047967624!5m2!1svi!2s"
+        width="300"
+        height="300"
+        style="border: 0; border-radius: 20%"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <div class="contact-info">
+        <h1 class="contact-title">SUBARU HA NOI</h1>
+        <p class="contact-address">
+          <b>Địa chỉ:</b> Số 1, Mạc Thái Tông, Trung Hòa, Cầu Giấy - Hà Nội
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

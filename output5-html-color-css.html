@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML - Color - CSS</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+     
+      .hero-content {
+        display: flex;
+       
+      }
+      .hero-image {
+        position: relative;
+        height: 500px;
+        border-radius: 0px 0px 60px 200px;
+        background-color: rgb(0, 88, 27);
+        flex: 1;
+        
+      }
+
+      .hero-text {
+        margin-left: 90px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+      }
+      .description{
+        color: black;
+        padding-top: 8px;
+        font-size: xx-large;
+        
+      }
+      h1 {
+        color: rgb(0, 87, 0);
+        font-family: 'Courier New', Courier, monospace;
+        font-size: xx-large;
+        margin: 0px;
+      }
+      h2 {
+        color: rgb(0, 87, 0);
+        font-size: 70px;
+        margin: 0px;
+      }
+      .highlight{
+        color: #f1a008;
+        font-size: 50px;
+        font:bold;
+        font-family: 'Courier New', Courier, monospace;
+        
+      }
+      .hero-buttons{
+        display: flex;
+        gap: 16px;
+      }
+      .btn-primary, .btn-secondary{
+        background-color: #5dc0e7;
+        border: none;
+        padding: 10px 35px;
+        border-radius: 15px;
+        font-size: x-large
+      }
+      img{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        height: 520px;
+      }
+    </style>
+  </head> 
+
+
+
+  <body>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>I'm <span class="highlight">Grafik</span></h1>
+          <h2>Graphic Designer</h2>
+          <p class="description">
+            It's strange that photographers spend years, even entire lifetime,
+            trying to capture moments that together don't even add up to a
+            couple of hours. Life is like a camera. Just focus on what's
+            important.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary">Let's Talk</button>
+            <button class="btn-secondary">Learn More</button>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="https://i.postimg.cc/4ysZM2KY/pexels-mikhail-nilov-7584927-removebg-preview.png" alt="Graphic Designer" />
+        </div>
+      </div>
+    </section>
+  </body>
+
+
+
+
+</html>

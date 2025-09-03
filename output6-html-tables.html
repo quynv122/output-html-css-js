@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Tables – Capstone Demo</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: #0b0c10;
+        color: #eaecef;
+        line-height: 1.5;
+        padding: 24px;
+      }
+      h1 {
+        margin: 0 0 16px;
+      }
+tr:hover{
+  background-color: rgb(48, 56, 63);
+}
+      .table-wrap {
+        background: #12141a;
+        border: 1px solid #ffffff;
+        border-radius: 12px;
+        padding: 16px;
+        overflow-x: auto;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 880px;
+        width: 100%;
+      }
+
+      caption {
+        text-align: center;
+        color: #9aa3ae;
+        padding: 8px 0 12px;
+        caption-side: top;
+      }
+
+      thead th {
+        position: sticky;
+        top: 0;
+        background: linear-gradient(180deg, #171a22 0%, #13161d 100%);
+        z-index: 2;
+        border-bottom: 1px solid #2a2f3a;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-size: 0.86rem;
+      }
+
+      table th,
+      table td {
+        padding: 12px 14px;
+        border-bottom: 1px solid #2a2f3a;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-align: left;
+      }
+
+      table th {
+        text-align: center;
+      }
+
+      tfoot td {
+        font-weight: 700;
+        background: #2c3342;
+        border-top: 2px solid #2a2f3a;
+      }
+
+      .num {
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+      .center {
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        border: 1px solid currentColor;
+      }
+      .b-good {
+        color: rgb(75, 255, 75);
+      }
+      .b-warn {
+        color: yellow;
+      }
+      .b-bad {
+        color: red;
+      }
+
+      colgroup col.group-id {
+        background: transparent;
+      }
+      colgroup col.group-spec {
+        background: transparent;
+      }
+      colgroup col.group-price {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bảng Báo giá &amp; Tồn kho</h1>
+
+    <div
+      class="table-wrap"
+      role="region"
+      aria-label="Bảng báo giá và tồn kho – cuộn ngang nếu cần"
+    >
+      <table>
+        <caption>
+          Bảng so sánh giá và tồn kho cho các phiên bản xe theo khu vực.
+        </caption>
+
+        <colgroup>
+          <col class="group-id" span="1" />
+          <col class="group-spec" span="3" />
+          <col class="group-price" span="3" />
+          <col span="1" />
+          <col span="1" />
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">Phiên bản</th>
+            <th scope="col" colspan="3" class="center">Thông số</th>
+            <th scope="col" colspan="3" class="center">
+              Đơn giá (VND) theo khu vực
+            </th>
+            <th scope="col" rowspan="2" class="center">Tồn kho</th>
+            <th scope="col" rowspan="2" class="center">Trạng thái</th>
+          </tr>
+          <tr>
+            <th scope="col" aria-label="Mã lực (HP)">HP</th>
+            <th scope="col" aria-label="Mô-men xoắn (Nm)">Nm</th>
+            <th scope="col" aria-label="0 đến 100 km/h (giây)">0–100</th>
+
+            <th scope="col">Miền Bắc</th>
+            <th scope="col">Miền Trung</th>
+            <th scope="col">Miền Nam</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">Standard</th>
+            <td class="num">150</td>
+            <td class="num">250</td>
+            <td class="num">9.8s</td>
+            <td class="num">699,000,000</td>
+            <td class="num">689,000,000</td>
+            <td class="num">705,000,000</td>
+            <td class="num">42</td>
+            <td class="center">
+              <span class="badge b-good" aria-label="Còn hàng tốt"
+                >Available</span
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Sport</th>
+            <td class="num">190</td>
+            <td class="num">310</td>
+            <td class="num">7.6s</td>
+            <td class="num">799,000,000</td>
+            <td class="num">789,000,000</td>
+            <td class="num">815,000,000</td>
+            <td class="num">12</td>
+            <td class="center">
+              <span class="badge b-warn" aria-label="Sắp hết hàng"
+                >Low stock</span
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Performance</th>
+            <td class="num">245</td>
+            <td class="num">380</td>
+            <td class="num">5.9s</td>
+            <td class="num">949,000,000</td>
+            <td class="num">939,000,000</td>
+            <td class="num">965,000,000</td>
+            <td class="num">0</td>
+            <td class="center">
+              <span class="badge b-bad" aria-label="Hết hàng"
+                >Out of stock</span
+              >
+            </td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colspan="4">Tổng giá tham chiếu (trung bình theo khu vực)</td>
+            <td class="num">815,666,667</td>
+            <td class="num">805,666,667</td>
+            <td class="num">828,333,333</td>
+            <td class="num">54</td>
+            <td class="center">—</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>

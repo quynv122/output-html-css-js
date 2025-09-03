@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Forms — Form đơn giản</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial;
+        color: #e6edf3;
+        background: radial-gradient(
+          1200px 800px at 10% -10%,
+          #1a2447 0%,
+          #0b1020 60%
+        );
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+      header h1 {
+        margin: 0 0 6px;
+        font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.2rem);
+      }
+
+      .card {
+        background: #111831;
+        border: 1px solid #1e2a52;
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 18px;
+      }
+
+      legend {
+        padding: 0 8px;
+        color: #cfe1ff;
+      }
+
+      label {
+        display: block;
+        margin: 0.35rem 0 0.25rem;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid #2e3b69;
+        background: #0d1328;
+        color: #e6edf3;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 2px solid #3753a3;
+        border-color: #3753a3;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .btn {
+        cursor: pointer;
+        background: #152049;
+      }
+      .btn.primary {
+        background: #1f3a8a;
+      }
+
+      .inline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Form liên hệ hỗ trợ khách hàng</h1>
+      </header>
+
+      <div class="card">
+        <form
+          id="contactForm"
+          name="contactForm"
+          action="https://httpbin.org/get"
+          method="get"
+          autocomplete="on"
+          target="_blank"
+        >
+          <fieldset>
+            <legend>1 - Thông tin liên hệ</legend>
+            <div class="row">
+              <div>
+                <label for="fullName">Họ và tên *</label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  required
+                  placeholder="VD: Nguyễn Văn A"
+                  autocomplete="name"
+                />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="name@example.com"
+                  autocomplete="email"
+                />
+              </div>
+              <div>
+                <label for="phone">Số điện thoại *</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="0xxxxxxxxx"
+                  pattern="[0-9]{10,11}"
+                  title="Nhập 10–11 chữ số"
+                  autocomplete="tel"
+                />
+              </div>
+              <div>
+                <label for="address">Địa chỉ *</label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  required
+                  autocomplete="street-address"
+                />
+              </div>
+              <div>
+                <label for="qty">Số lượng thiết bị</label>
+                <input
+                  id="qty"
+                  name="qty"
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="1"
+                  value="0"
+                />
+              </div>
+              <div>
+                <label for="topic">Chủ đề *</label>
+                <input
+                  id="topic"
+                  name="topic"
+                  list="topicList"
+                  required
+                  placeholder="Chọn hoặc gõ..."
+                />
+                <datalist id="topicList">
+                  <option value="Báo giá" />
+                  <option value="Tư vấn kỹ thuật" />
+                  <option value="Hỗ trợ bảo hành" />
+                </datalist>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2 - Nội dung</legend>
+            <label for="message">Lời nhắn *</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              minlength="10"
+              maxlength="500"
+              required
+              placeholder="Mô tả vấn đề  của bạn..."
+            ></textarea>
+          </fieldset>
+
+          <fieldset>
+            <legend>4 - Xác nhận</legend>
+            <label class="inline" for="agree">
+              <input
+                id="agree"
+                name="agree"
+                type="checkbox"
+                required
+                style="width: auto"
+              />
+              Tôi đồng ý với điều khoản xử lý dữ liệu
+            </label>
+          </fieldset>
+
+          <div class="actions">
+            <button class="btn primary" type="submit">Gửi</button>
+            <button class="btn" type="reset">Xoá nội dung</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
