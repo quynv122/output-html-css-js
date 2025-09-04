@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flex</title>
+  </head>
+  <style>
+    footer {
+      background-color: rgb(32, 24, 46);
+      margin-top: 200px;
+      display: flex;
+      padding: 20px 15%;
+      color: rgb(255, 255, 255);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .about-us {
+      width: 40%;
+    }
+    .infor-link,
+    .contact-detail,
+    .social {
+      width: 20%;
+      margin-left: 40px;
+    }
+
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(167, 165, 165, 0.288);
+    }
+    h3 {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    .logo img {
+      width: 100px;
+    }
+
+    li a:link,
+    li a:visited,
+    li a:hover,
+    li a:active {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <footer>
+      <div class="about-us">
+        <a class="logo" href="./"
+          ><img src="https://i.postimg.cc/9XG0HTMC/logo.png" alt="logo"
+        /></a>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
+          amet suscipit est. Nulla iaculis ipsum sit amet leo euismod maximus.
+          Donec malesuada posuere mi, nec scelerisque nibh porta eu. Mauris in
+          ultricies nulla. Quisque vitae ipsum quis odio efficitur tincidunt.
+          <br />
+          <br />
+          Nullam viverra a velit et sodales. Etiam eu odio quis felis pretium
+          interdum quis in velit. Nullam eu justo quis mi varius malesuada nec
+          vitae magna.
+        </p>
+      </div>
+      <div class="infor-link">
+        <h3>Infomation Link</h3>
+        <ul class="link-list">
+          <li><a href="./">Hone</a></li>
+          <li><a href="/sdfdsfg">Blog</a></li>
+          <li><a href="/fsdfssg">Pricing</a></li>
+          <li><a href="/abjfjsdf">About</a></li>
+          <li><a href="/ádasd">Faq</a></li>
+          <li><a href="/fggd">contact</a></li>
+        </ul>
+      </div>
+      <div class="contact-detail">
+        <h3>Contact Details</h3>
+        <ul>
+          <li>quynv.122@gmail.com</li>
+          <li>www.dgsfgs.com</li>
+          <li>123 hcn, bv - hn</li>
+          <li>+8477479393</li>
+        </ul>
+      </div>
+      <div class="social">
+        <h3>Social</h3>
+        <ul class="social-list">
+          <li><a href="">icon fb</a></li>
+          <li><a href="">icon ytb</a></li>
+          <li><a href="">icon zalo</a></li>
+          <li><a href="">rrete</a></li>
+          <li><a href="">ẻwtwet23</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

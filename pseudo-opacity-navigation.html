@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo - Opacity - Navigation bars</title>
+  </head>
+  <style>
+    header {
+      background-color: rgb(53, 53, 53);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 20px;
+      max-height: 100px;
+
+    }
+    li {
+      display: inline-block;
+    }
+    .header__logo img {
+      height: 80px;
+    }
+    li + li {
+      margin-left: 30px;
+    }
+    ul {
+      padding: 0;
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: #fff;
+      text-decoration: none;
+      font-size: larger;
+      display: inline-block;
+      text-transform: lowercase;
+    }
+
+    li a:hover {
+      color: #0e9cdf;
+    }
+    .header__btn--quote {
+      background-color: rgb(248, 112, 96);
+      padding: 8px 20px;
+      border-radius: 15px;
+      font-weight: 600;
+    }
+    .header__btn--quote:hover {
+      opacity: 0.8;
+    }
+
+    a::first-letter {
+      text-transform: uppercase;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <a href="./" class="header__logo">
+        <img src="https://i.postimg.cc/9XG0HTMC/logo.png" alt="logo" />
+      </a>
+      <nav class="header__av">
+        <ul class="header__menu">
+          <li class="header__menu-item"><a href="./">trang chủ</a></li>
+          <li class="header__menu-item"><a href="/car-list">các mẫu xe</a></li>
+          <li class="header__menu-item"><a href="/contact">liên hệ</a></li>
+          <li class="header__menu-item"><a href="/news-evens">tin tức & sự kiện</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a class="header__btn--quote" href="">nhận báo giá</a>
+      </div>
+    </header>
+  </body>
+</html>
