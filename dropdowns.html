@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Dropdowns.</title>
+  </head>
+  <style>
+    header {
+      display: flex;
+      padding: 0 10%;
+      justify-content: space-around;
+      background-color: #243457;
+      align-items: center;
+      color: #ffffff;
+      max-height: 80px;
+
+    }
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: #fff;
+      text-decoration: none;
+      cursor: defaults;
+    }
+    .header__menu > ul {
+      padding: 0;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      padding: 20px 15px;
+      list-style-type: none;
+      color: #000000;
+      border-radius: 8px;
+      width: 200px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    .dropdown > li {
+      padding: 12px 10px;
+      font-size: larger;
+      cursor: default;
+    }
+    .dropdown > li:hover {
+      background-color: rgb(73, 5, 100);
+      color: #ffffff;
+      border-radius: 8px;
+    }
+
+    .menu__item > div > a {
+      font-size: x-large;
+    }
+    .menu__item > div > a:hover {
+      color: #41e295;
+    }
+    .menu__item {
+      display: inline-block;
+      position: relative;
+    }
+    .menu__item + .menu__item {
+      margin-left: 45px;
+    }
+    .item--dropdown::after {
+      content: "\25BC";
+      font-size: 0.7em;
+      margin-left: 4px;
+    }
+    .item--dropdown:hover .dropdown {
+      display: block;
+    }
+    .btn__login {
+      background-color: #cf5707;
+      padding: 7px 15px;
+      border-radius: 12px;
+      font-size: x-large;
+      cursor: default;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        display: none;
+      }
+    }
+  </style>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <p>Logo</p>
+      </div>
+      <nav class="header__menu">
+        <ul>
+          <li class="menu__item">
+            <div class="item__home">
+              <a href="">Trang Chủ</a>
+            </div>
+          </li>
+          <li class="menu__item">
+            <div class="item__about">
+              <a href="">Giới thiệu</a>
+            </div>
+          </li>
+          <li class="menu__item">
+            <div class="item__products item--dropdown">
+              <a href="">Sản phẩm</a>
+              <ul class="dropdown product__dropdown">
+                <li>App học tiếng anh</li>
+                <li>Quản lý tài sản</li>
+                <li>Sản phẩm...</li>
+                <li>Sản phẩm...</li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu__item">
+            <div class="itemm__services item--dropdown">
+              <a href="">Dịch vụ</a>
+              <ul class="dropdown services__dropdown">
+                <li>Đào tạo AI</li>
+                <li>Thực tế ảo</li>
+                <li>Tư vấn</li>
+                <li>Dịch vụ viễn thông</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a class="header__btn btn__login">Login</a>
+      </div>
+    </header>
+  </body>
+</html>
