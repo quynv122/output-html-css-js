@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academia</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+    />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(255, 255, 255);
+    }
+    .container {
+      background-color: rgb(112, 158, 158);
+      width: 100vw;
+      height: 100vh;
+    }
+    .bg {
+      background: url("https://i.postimg.cc/8PsyphXD/Chat-GPT-Image-08-20-17-10-thg-9-2025.png")
+        center no-repeat fixed;
+      background-position: right -10vw bottom 0;
+      height: 100vh;
+    }
+    .top-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 15%;
+      color: rgb(255, 255, 255);
+    }
+    .top-wrap__logo {
+      width: 40%;
+      cursor: pointer;
+    }
+    .top-wrap__logo a {
+      margin: 0;
+      font-size: xx-large;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+    }
+    .top-wrap__logo p {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .top-wrap__logo:hover a {
+      color: rgb(16, 131, 106);
+    }
+
+    .top-wrap__time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .top-wrap__phone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .fa-clock,
+    .fa-phone {
+      font-size: 2rem;
+      margin-right: 0.5rem;
+    }
+
+    .time__text p,
+    .phone__text p {
+      margin: 0;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+    .time__text p:last-child,
+    .phone__text p:last-child {
+      font-weight: 800;
+    }
+    .top-wrap__socials {
+      list-style-type: none;
+      cursor: pointer;
+      white-space: nowrap;
+      padding: 0;
+    }
+    .social__icon {
+      display: inline-block;
+    }
+    .social__icon + .social__icon {
+      margin-left: 0.2rem;
+    }
+
+    .social__icon i {
+      font-size: larger;
+      color: rgb(16, 131, 106);
+      background-color: rgba(255, 255, 255, 0.37);
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .social__icon:hover i {
+      background-color: rgb(16, 131, 106);
+      color: rgb(255, 255, 255);
+      transition-duration: 0.3s;
+    }
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+      cursor: defaults;
+    }
+
+    .nav {
+      display: flex;
+      margin: 0 15%;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+      max-height: 80px;
+      overflow: hidden;
+    }
+    .nav__menu {
+      list-style-type: none;
+      padding: 0;
+      margin-left: 1.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .nav__item {
+      display: inline-block;
+      color: rgb(255, 255, 255);
+      font-size: 1.2rem;
+    }
+    .nav__item + .nav__item {
+      margin-left: 2em;
+    }
+    .nav__item--active {
+      color: rgb(16, 131, 106);
+    }
+    .nav__item:hover {
+      color: rgb(16, 131, 106);
+      transition-duration: 0.3s;
+    }
+    .nav__actions {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .nav__actions button {
+      background-color: rgb(16, 131, 106);
+      width: 100%;
+      height: 100%;
+      color: rgb(255, 255, 255);
+      font-size: 1.5rem;
+      border: none;
+      font-weight: 500;
+      padding: 0;
+    }
+    .nav__actions:hover button {
+      background-color: rgb(255, 255, 255);
+      color: rgb(16, 131, 106);
+      transition-duration: 0.3s;
+    }
+    .hero-wrap {
+      padding: 0 15%;
+      margin-top: 15rem;
+    }
+    .hero-wrap__content {
+      width: 60%;
+    }
+
+    .hero-wrap__subheading {
+      color: rgb(209, 209, 209);
+      font-size: 1.3rem;
+      white-space: nowrap;
+      font-weight: 600;
+      margin: 0;
+    }
+    .hero-wrap__heading {
+      color: rgb(255, 255, 255);
+      font-size: 2.5rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+
+    .hero-wrap__description {
+      color: rgb(255, 255, 255);
+      font-size: x-large;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hero-wrap__actions {
+      padding-top: 1rem;
+    }
+
+    .hero__btn {
+      height: 3rem;
+      padding: 0 2rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .btn__get-start {
+      background-color: rgb(16, 131, 106);
+      color: rgb(255, 255, 255);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .btn__view-sourse {
+      background-color: rgb(255, 255, 255);
+      color: rgb(16, 131, 106);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .btn__get-start:hover {
+      background-color: rgb(5, 97, 77);
+      transition-duration: 0.3s;
+    }
+    .btn__view-sourse:hover {
+      background-color: rgb(224, 241, 241);
+      color: rgb(7, 88, 68);
+      transition-duration: 0.3s;
+    }
+
+    .benefits {
+      padding: 4rem 15% 2rem 15%;
+      background-color: rgb(254, 245, 255);
+    }
+    .benefits__content {
+      display: flex;
+      align-items: center; 
+      gap: 2rem;
+    }
+    .benefits__subtitle {
+      font-size: x-large;
+      font-weight: 600;
+      color: rgb(16, 131, 106);
+      margin: 0;
+      text-align: center;
+    }
+
+    .benefits__title {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .benefits__img {
+      width: 40%;
+    }
+
+    .benefits__img img {
+      width: 100%;
+      height: 27rem;
+    }
+
+    .benefits__item {
+      display: flex;
+      align-items: center;
+    }
+    .benefits__item + .benefits__item {
+      padding-top: 2rem;
+    }
+    .benefits__list {
+
+      background-color: white;
+      padding: 1rem 4rem;
+    }
+    .benefits__icon > i {
+      font-size: 4rem;
+      margin-right: 3rem;
+      width: 4rem;
+      color: rgb(16, 131, 106);
+    }
+
+    .courses {
+      padding: 4rem 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .courses__subtitle {
+      font-size: x-large;
+      font-weight: 600;
+      color: rgb(16, 131, 106);
+      margin: 0;
+      text-align: center;
+    }
+    .courses__title {
+      font-size: xx-large;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .courses__grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2rem;
+      margin: 4rem auto;
+      width: 100%;
+    }
+    .courses__item {
+      background-color: rgb(245, 244, 244);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      transition-duration: 0.3s;
+    }
+
+    .courses__icon {
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      color: rgb(16, 131, 106);
+    }
+    .courses__name {
+      text-align: center;
+      font-size: 1.2;
+    }
+    .courses__count {
+      background-color: rgb(233, 233, 233);
+      border-radius: 12px;
+      padding: 0 0.5rem;
+      color: rgb(16, 131, 106);
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-weight: 600;
+    }
+    .courses__item:hover {
+      background-color: rgb(16, 131, 106);
+      color: white;
+    }
+    .courses__item:hover .courses__icon {
+      color: white;
+    }
+    .blog {
+      padding: 0 15%;
+    }
+    .blog__subtitle {
+      font-size: x-large;
+      font-weight: 600;
+      color: rgb(16, 131, 106);
+      margin: 0;
+      text-align: center;
+    }
+    .blog__title {
+      font-size: xx-large;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .blog__list {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 2rem 0;
+    }
+    .blog__name:hover {
+      color: rgb(16, 131, 106);
+    }
+    .blog__item {
+      background-color: rgb(234, 236, 238);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .blog__image img {
+      width: 100%;
+    }
+
+    .blog__meta {
+      display: flex;
+      gap: 1.4rem;
+      padding: 0.8rem 1rem;
+    }
+    .blog__icon {
+      font-size: 1rem;
+      color: rgb(16, 131, 106);
+    }
+    .blog__author span {
+      padding-left: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .blog__name {
+      font-size: 1.8rem;
+      padding: 0 1rem;
+    }
+    .blog__desc {
+      font-size: 1.3rem;
+      padding: 0 1rem;
+    }
+    .pricing {
+      padding: 4rem 15%;
+    }
+    .pricing__subtitle {
+      font-size: x-large;
+      font-weight: 600;
+      color: rgb(16, 131, 106);
+      margin: 0;
+      text-align: center;
+    }
+    .pricing__title {
+      font-size: xx-large;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding-top: 2rem;
+      gap: 2rem;
+    }
+    .pricing-card {
+      background-color: rgb(234, 236, 238);
+      text-align: center;
+      padding: 0 2rem 2rem 2rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 12px;
+    }
+    .pricing-card__amount {
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgb(16, 131, 106);
+    }
+    .pricing-card__currency {
+      font-size: 1.8rem;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .pricing-card__desc {
+      font-size: larger;
+    }
+
+    .pricing-card__btn {
+      border: 2px solid rgb(16, 131, 106);
+      padding: 1rem 3rem;
+      margin-top: 2rem;
+      font-size: larger;
+      color: rgb(16, 131, 106);
+      background-color: transparent;
+      transition-duration: 0.3s;
+    }
+
+    .pricing-card__btn:hover {
+      background-color: rgb(16, 131, 106);
+      color: white;
+      border: 2px solid white;
+    }
+    .footer {
+      padding: 2rem 0;
+    }
+
+    .footer__container {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 15%;
+    }
+    .footer__brand {
+      width: 40%;
+    }
+    .footer__logo {
+      font-size: xx-large;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      margin: 0;
+      color: rgb(16, 131, 106);
+    }
+    .footer__tagline {
+      margin: 0;
+    }
+    .footer__text {
+      font-size: large;
+    }
+    .footer__social {
+      list-style-type: none;
+      padding: 2rem 0;
+    }
+    .footer__social-item {
+      display: inline-block;
+    }
+    .footer__social-item + .footer__social-item {
+      margin-left: 1.5rem;
+    }
+    .footer__social-link {
+      color: rgb(255, 255, 255);
+      background-color: rgb(16, 131, 106);
+      padding: 0.5rem;
+      border-radius: 50px;
+    }
+    .footer__social-link i {
+      width: 1.2rem;
+      height: 1.2rem;
+      text-align: center;
+    }
+    .footer__social-link:hover {
+      background-color: rgb(158, 172, 167);
+      color: rgb(16, 131, 106);
+    }
+    .footer__list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .footer__contact {
+      width: 25%;
+    }
+    .footer__title {
+      font-size: x-large;
+      margin: 0;
+    }
+    .footer__list li {
+      font-size: large;
+      padding: 0.3rem 0;
+    }
+    .footer__list a {
+      color: black;
+    }
+    .footer__list a:hover {
+      color: rgb(16, 131, 106);
+    }
+
+    .footer__contact-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: rgb(16, 131, 106);
+    }
+    .footer__bottom {
+      background-color: rgb(234, 236, 238);
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 1200px) {
+      .nav__item + .nav__item {
+        margin-left: 0.5em;
+      }
+      .top-wrap__logo {
+        width: 50%;
+      }
+      .bg {
+        background-position: right -250px bottom 0;
+      }
+      .benefits__img {
+        display: none;
+      }
+      .courses__grid{
+        grid-template-columns: repeat(3,1fr);
+      }
+      .blog__list{
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pricing__grid{
+        grid-template-columns: repeat(2,1fr);
+      }
+
+    }
+    @media (max-width: 992px) {
+      .nav__item + .nav__item {
+        margin-left: 0.5em;
+      }
+
+      .top-wrap__time,
+      .top-wrap__phone {
+        display: none;
+      }
+      .nav__menu {
+        display: none;
+      }
+      .nav__actions {
+        width: 50%;
+      }
+      .bg {
+        background-position: right -500px bottom 0;
+      }
+      .hero-wrap__content {
+        width: 70%;
+      }
+      .hero-wrap__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-wrap {
+        margin-top: 10rem;
+      }
+      .benefits__img {
+        display: none;
+      }
+      .courses__grid{
+        grid-template-columns: repeat(2,1fr);
+      }
+      .blog__list{
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .pricing__grid{
+        grid-template-columns: repeat(1,1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .nav_mobile {
+        display: none;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="bg">
+        <div class="top-wrap">
+          <div class="top-wrap__logo">
+            <a>ACADEMIA</a>
+            <p>Online Education & Learning</p>
+          </div>
+          <div class="top-wrap__time">
+            <div class="time__icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="time__text">
+              <p>Monday - Friday</p>
+              <p>8:00AM - 8:00PM</p>
+            </div>
+          </div>
+          <div class="top-wrap__phone">
+            <div class="phone__icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="phone__text">
+              <p>Call Us</p>
+              <p>+2 392 3929 210</p>
+            </div>
+          </div>
+          <ul class="top-wrap__socials">
+            <li class="social__icon">
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+            </li>
+            <li class="social__icon">
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </li>
+            <li class="social__icon">
+              <a href="#" aria-label="X (Twitter)"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <nav class="nav">
+          <ul class="nav__menu">
+            <li class="nav__item nav__item--active">Home</li>
+            <li class="nav__item">All Courses</li>
+            <li class="nav__item">About</li>
+            <li class="nav__item">Team</li>
+            <li class="nav__item">Pricing</li>
+            <li class="nav__item">Journal</li>
+            <li class="nav__item">Contact</li>
+          </ul>
+          <div class="nav_mobile">Mennu<i class="fa-solid fa-bars"></i></div>
+          <div class="nav__actions">
+            <button href="" class="nav__btn">Get Certificate</button>
+          </div>
+        </nav>
+        <section class="hero-wrap">
+          <div class="hero-wrap__content">
+            <p class="hero-wrap__subheading">Welcome to Academia</p>
+            <h1 class="hero-wrap__heading">Best Online Education Expertise</h1>
+            <p class="hero-wrap__description">
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+            <div class="hero-wrap__actions">
+              <button class="hero__btn btn__get-start">
+                Get Started Now! <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <button class="hero__btn btn__view-sourse">
+                View Course <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="benefits">
+        <p class="benefits__subtitle">Learn Anything</p>
+        <h2 class="benefits__title">
+          Benefits About Online Learning Expertise
+        </h2>
+        <div class="benefits__content">
+          <div class="benefits__img">
+            <img
+              src="https://i.postimg.cc/L85sdsR0/iewek-gnos-hh-Ux08-Pu-Ypc-unsplash.jpg"
+              alt=""
+            />
+          </div>
+
+          <div class="benefits__list">
+            <article class="benefits__item">
+              <div class="benefits__icon" aria-hidden="true">
+                <i class="fa-solid fa-laptop-file"></i>
+              </div>
+              <div class="benefits__body">
+                <h3 class="benefits__item-title">Online Courses</h3>
+                <p class="benefits__item-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+              </div>
+            </article>
+
+            <article class="benefits__item">
+              <div class="benefits__icon" aria-hidden="true">
+                <i class="fa-solid fa-address-card"></i>
+              </div>
+              <div class="benefits__body">
+                <h3 class="benefits__item-title">Earn A Certificates</h3>
+                <p class="benefits__item-text">
+                  Far far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+              </div>
+            </article>
+
+            <article class="benefits__item">
+              <div class="benefits__icon" aria-hidden="true">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <div class="benefits__body">
+                <h3 class="benefits__item-title">Learn with Expert</h3>
+                <p class="benefits__item-text">
+                  FFar far away, behind the word mountains, far from the
+                  countries Vokalia and Consonantia, there live the blind texts.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="courses">
+        <div class="courses__header">
+          <p class="courses__subtitle">Courses</p>
+          <h2 class="courses__title">Browse Our Online Courses</h2>
+        </div>
+
+        <div class="courses__grid">
+          <article class="courses__item">
+            <div class="courses__icon"><i class="fa-solid fa-desktop"></i></div>
+            <h3 class="courses__name">UI/UX Design Courses</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item courses__item--active">
+            <div class="courses__icon"><i class="fa-solid fa-palette"></i></div>
+            <h3 class="courses__name">Art & Design</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-computer"></i>
+            </div>
+            <h3 class="courses__name">Computer Science</h3>
+            <span class="courses__count">10 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="courses__name">History & Archeologic</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="courses__name">Software Engineering</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3 class="courses__name">Information Software</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="courses__name">Health & Fitness</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <h3 class="courses__name">Marketing</h3>
+            <span class="courses__count">15 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-spray-can"></i>
+            </div>
+            <h3 class="courses__name">Graphic Design</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon"><i class="fa-solid fa-music"></i></div>
+            <h3 class="courses__name">Music</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3 class="courses__name">Business Adminstration</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+
+          <article class="courses__item">
+            <div class="courses__icon"><i class="fa-solid fa-globe"></i></div>
+            <h3 class="courses__name">Web Management</h3>
+            <span class="courses__count">25 Courses</span>
+          </article>
+        </div>
+      </section>
+      <section class="blog">
+        <div class="blog__header">
+          <p class="blog__subtitle">Our Blog</p>
+          <h2 class="blog__title">Recent From Blog</h2>
+        </div>
+
+        <div class="blog__list">
+          <article class="blog__item">
+            <div class="blog__image">
+              <img
+                src="https://i.postimg.cc/1Rw9yJR1/sabbir-ahmed-e-JGDi-Wcss-Ek-unsplash.jpg"
+                alt="Blog image"
+              />
+            </div>
+            <div class="blog__meta">
+              <div class="blog__author">
+                <i class="fa-solid fa-user-tie blog__icon"></i
+                ><span>Admin</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-calendar-days blog__icon"></i
+                ><span>Jan. 18, 2021</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-comment blog__icon"></i
+                ><span>3 Comments</span>
+              </div>
+            </div>
+            <h3 class="blog__name">
+              Build your Dream Software &amp; Engineering Career
+            </h3>
+            <p class="blog__desc">
+              A small river named Duden flows by their place and supplies it
+              with the necessary regalia.
+            </p>
+          </article>
+          <article class="blog__item">
+            <div class="blog__image">
+              <img
+                src="https://i.postimg.cc/J4QMk0BT/mailchimp-M7-HM8-Vg-Yx-W4-unsplash.jpg"
+                alt="Blog image"
+              />
+            </div>
+            <div class="blog__meta">
+              <div class="blog__author">
+                <i class="fa-solid fa-user-tie blog__icon"></i
+                ><span>Admin</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-calendar-days blog__icon"></i
+                ><span>Jan. 18, 2021</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-comment blog__icon"></i
+                ><span>3 Comments</span>
+              </div>
+            </div>
+            <h3 class="blog__name">
+              Build your Dream Software &amp; Engineering Career
+            </h3>
+            <p class="blog__desc">
+              A small river named Duden flows by their place and supplies it
+              with the necessary regalia.
+            </p>
+          </article>
+          <article class="blog__item">
+            <div class="blog__image">
+              <img
+                src="https://i.postimg.cc/NjfY7t6Q/mailchimp-Su-9-B-ko3is-unsplash.jpg"
+                alt="Blog image"
+              />
+            </div>
+            <div class="blog__meta">
+              <div class="blog__author">
+                <i class="fa-solid fa-user-tie blog__icon"></i
+                ><span>Admin</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-calendar-days blog__icon"></i
+                ><span>Jan. 18, 2021</span>
+              </div>
+              <div class="blog__author">
+                <i class="fa-solid fa-comment blog__icon"></i
+                ><span>3 Comments</span>
+              </div>
+            </div>
+            <h3 class="blog__name">
+              Build your Dream Software &amp; Engineering Career
+            </h3>
+            <p class="blog__desc">
+              A small river named Duden flows by their place and supplies it
+              with the necessary regalia.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="pricing">
+        <header class="pricing__header">
+          <p class="pricing__subtitle">Our Pricing</p>
+          <h2 class="pricing__title">Pricing &amp; Packages</h2>
+        </header>
+
+        <div class="pricing__grid">
+          <article class="pricing-card pricing-card--basic">
+            <h3 class="pricing-card__plan">Basic Plan</h3>
+
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount">499</span>
+            </div>
+
+            <p class="pricing-card__desc">
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+
+            <button href="#" class="pricing-card__btn">Get Started</button>
+          </article>
+
+          <article class="pricing-card pricing-card--beginner">
+            <h3 class="pricing-card__plan">Beginner Plan</h3>
+
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount">799</span>
+            </div>
+
+            <p class="pricing-card__desc">
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+
+            <button href="#" class="pricing-card__btn">Get Started</button>
+          </article>
+
+          <article class="pricing-card pricing-card--premium">
+            <h3 class="pricing-card__plan">Premium Plan</h3>
+
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount">1099</span>
+            </div>
+
+            <p class="pricing-card__desc">
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+
+            <button href="#" class="pricing-card__btn">Get Started</button>
+          </article>
+
+          <article class="pricing-card pricing-card--ultimate">
+            <h3 class="pricing-card__plan">Ultimate Plan</h3>
+
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">$</span>
+              <span class="pricing-card__amount">1499</span>
+            </div>
+
+            <p class="pricing-card__desc">
+              Far far away, behind the word mountains, far from the countries
+              Vokalia and Consonantia, there live the blind texts.
+            </p>
+
+            <button href="#" class="pricing-card__btn">Get Started</button>
+          </article>
+        </div>
+      </section>
+      <section class="footer">
+        <div class="footer__container">
+          <div class="footer__brand">
+            <h3 class="footer__logo">ACADEMIA</h3>
+            <p class="footer__tagline">Online education &amp; learning</p>
+            <p class="footer__text">
+              A small river named Duden flows by their place and supplies it
+              with the necessary regelialia.
+            </p>
+            <ul class="footer__social">
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li class="footer__social-item">
+                <a class="footer__social-link" href="#" aria-label="Twitter"
+                  ><i class="fa-brands fa-x-twitter"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <nav
+            class="footer__group footer__group--explore"
+            aria-label="Explore"
+          >
+            <h4 class="footer__title">Explore</h4>
+            <ul class="footer__list">
+              <li><a class="footer__link" href="#">About Us</a></li>
+              <li><a class="footer__link" href="#">Services</a></li>
+              <li><a class="footer__link" href="#">Courses</a></li>
+              <li><a class="footer__link" href="#">Blog</a></li>
+              <li><a class="footer__link" href="#">Contact us</a></li>
+            </ul>
+          </nav>
+          <nav
+            class="footer__group footer__group--quick"
+            aria-label="Quick links"
+          >
+            <h4 class="footer__title">Quick Links</h4>
+            <ul class="footer__list">
+              <li><a class="footer__link" href="#">Contact Us</a></li>
+              <li><a class="footer__link" href="#">Pricing</a></li>
+              <li>
+                <a class="footer__link" href="#">Terms &amp; Conditions</a>
+              </li>
+              <li><a class="footer__link" href="#">Privacy</a></li>
+              <li><a class="footer__link" href="#">Feedbacks</a></li>
+            </ul>
+          </nav>
+
+          <address class="footer__contact">
+            <h4 class="footer__title">Have a Questions?</h4>
+            <p class="footer__contact-item">
+              <span class="footer__contact-icon"
+                ><i class="fa-solid fa-location-dot"></i
+              ></span>
+              203 Fake St. Mountain View, San Francisco, California, USA
+            </p>
+            <p class="footer__contact-item">
+              <span class="footer__contact-icon"
+                ><i class="fa-solid fa-phone"></i
+              ></span>
+              +2 392 3929 210
+            </p>
+            <p class="footer__contact-item">
+              <span class="footer__contact-icon"
+                ><i class="fa-solid fa-envelope"></i
+              ></span>
+              info@yourdomain.com
+            </p>
+          </address>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">
+            Copyright ©2025 All rights reserved | This template is made with ❤
+            by
+            <a class="footer__credit" href="#">Colorlib</a>
+          </p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

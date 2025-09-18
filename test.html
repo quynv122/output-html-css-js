@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Khung ảnh */
+.cut{
+  position: relative;
+  overflow: hidden;      /* cắt phần bị tràn */
+  background: #fff;      /* TRÙNG màu nền trang */
+  height: 420px;         /* demo */
+}
+.cut > img{
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* Cái “đĩa” trắng ăn vào mép trái */
+.cut::before{
+  content: "";
+  position: absolute;
+  left: -60vw;           /* đẩy tâm tròn ra ngoài bên trái */
+  top: 50%; transform: translateY(-50%);
+  width: 120vw; height: 120vw;  /* tròn siêu to */
+  border-radius: 50%;
+  background: #fff;      /* cùng màu nền */
+  pointer-events: none;
+}
+
+</style>
+<body>
+    <details>
+  <summary>Click me</summary>
+  <p>Hello world</p>
+</details>
+</div>
+
+</body>
+</html>

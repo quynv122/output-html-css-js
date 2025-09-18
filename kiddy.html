@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiddy - kiddy..........</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Moon+Dance&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    :root {
+      --green: #71bc42;
+      --red: #dc3545;
+      --orange: #ffc107;
+      --blue: #16c3b0;
+    }
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+      cursor: defaults;
+    }
+    .top-wrap {
+      background-color: #6c757d;
+      height: 90vh;
+      background-image: url("https://i.postimg.cc/YS6jNz3V/Chat-GPT-Image-09-44-47-15-thg-9-2025.png");
+      background-repeat: no-repeat;
+      background-position: 90% 100%;
+    }
+
+    .top-wrap__header {
+      padding: 0 15%;
+    }
+    .header__top {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 0;
+    }
+    .header__brand,
+    .header__brand-dot {
+      font-size: xx-large;
+      font-family: "Pacifico", cursive;
+      font-weight: 400;
+      font-style: normal;
+      color: rgb(255, 255, 255);
+    }
+    .header__brand-dot {
+      color: var(--red);
+    }
+
+    .header__info {
+      display: flex;
+      gap: 2rem;
+    }
+    .header__info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .header__info-text {
+      margin: 0;
+      font-size: clamp(14px, 1.5vw, 1.5rem);
+      color: white;
+    }
+    .header__info-icon {
+      font-size: xx-large;
+    }
+    .header-icon-location {
+      color: var(--orange);
+    }
+    .header-icon-oclock {
+      color: var(--red);
+    }
+
+    .header__nav {
+      padding: 2rem 0;
+    }
+    .header__menu {
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+      padding: 1.5rem 2rem;
+      border-radius: 50px;
+    }
+    .header__social,
+    .menu__list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu__item {
+      display: inline-block;
+    }
+    .menu__item + .menu__item {
+      margin-left: 2rem;
+    }
+    .menu__link {
+      color: rgb(0, 0, 0);
+      font-size: x-large;
+    }
+    .menu__link--active {
+      color: var(--red);
+    }
+    .menu__link:hover {
+      color: var(--red);
+      transition-duration: 0.3;
+    }
+    .social__item {
+      display: inline-block;
+      font-size: larger;
+    }
+    .social__item + .social__item {
+      margin-left: 1rem;
+    }
+
+    .social__item i {
+      vertical-align: bottom;
+    }
+    .fa-facebook-f {
+      color: var(--blue);
+    }
+    .fa-twitter {
+      color: var(--green);
+    }
+    .fa-linkedin-in {
+      color: var(--orange);
+    }
+    .top-wrap__content {
+      padding: 8rem 15% 0 15%;
+      animation: top-wrap__content 1s cubic-bezier(.22,.8,.36,1) both;
+    }
+
+    .top-wrap__subheading {
+      margin: 0;
+      font-size: large;
+      font-family: "Pacifico", cursive;
+      color: var(--orange);
+    }
+    .top-wrap__heading {
+      margin: 0;
+      color: white;
+      font-size: 4rem;
+      text-shadow: 2px 3px 6px rgba(0, 102, 255, 0.6);
+    }
+    .top-wrap__description {
+      color: white;
+      font-size: large;
+    }
+    .top-wrap__action {
+      padding-top: 3rem;
+    }
+    .top-wrap__btn {
+      border: none;
+      background-color: var(--red);
+      color: white;
+      font-size: large;
+      padding: 1.2rem 1.7rem;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition-duration: 0.3s;
+    }
+    .top-wrap__btn:hover {
+      transform: scale(1.1);
+    }
+
+    .activities {
+      padding: 4rem 15%;
+    }
+
+    .activities__list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 4rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .activities__item {
+      padding: 3rem 2rem;
+      background-color: #6c757d;
+      text-align: center;
+      overflow-wrap: anywhere;
+      word-break: break-all;
+      position: relative;
+      border-radius: 12px;
+    }
+    .activities__item--red {
+      background-color: var(--red);
+    }
+    .activities__item--orange {
+      background-color: var(--orange);
+    }
+    .activities__item--blue {
+      background-color: var(--blue);
+    }
+    .activities__card {
+      background-color: inherit;
+    }
+    .activities__badge {
+      position: absolute;
+      background-color: inherit;
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .activities__icon {
+      font-size: xx-large;
+      color: white;
+    }
+    .activities__title {
+      font-size: x-large;
+      color: white;
+    }
+    .activities__desc {
+      color: white;
+      margin: 0;
+      font-size: large;
+    }
+
+    @keyframes top-wrap__content {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 1200px) {
+      .activities {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+      .activities__list {
+        gap: 1.5rem;
+      }
+      .menu__item + .menu__item {
+        margin-left: 1rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .header__top {
+        justify-content: center;
+      }
+      .header__info {
+        display: none;
+      }
+
+      .menu__list {
+        display: none;
+      }
+
+      .activities__list {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .top-wrap {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+  <body>
+    <div class="top-wrap">
+      <header class="top-wrap__header">
+        <div class="header__top">
+          <a href="/" class="header__brand">
+            KIDDY
+            <span class="header__brand-dot">.</span>
+          </a>
+
+          <div class="header__info">
+            <div class="header__info-item header__info-item--location">
+              <i
+                class="fa-solid fa-location-dot header__info-icon header-icon-location"
+              ></i>
+              <p class="header__info-text">
+                34 Street Name, City Name Here, <br />United States
+              </p>
+            </div>
+
+            <div class="header__info-item header__info-item--hours">
+              <i
+                class="header__info-icon fa-solid fa-clock header-icon-oclock"
+              ></i>
+              <p class="header__info-text">
+                Sunday – Friday 8:00AM – 4:00PM<br />Saturday: CLOSED
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="header__nav">
+          <nav class="header__menu" aria-label="Primary">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a class="menu__link menu__link--active" href="#">Home</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">About</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Packages</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Gallery</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Pricing</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#">Contact</a>
+              </li>
+            </ul>
+
+            <ul class="header__social">
+              <li class="social__item">
+                <a
+                  class="social__link social__link--facebook"
+                  href="#"
+                  aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link social__link--twitter"
+                  href="#"
+                  aria-label="Twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li class="social__item">
+                <a
+                  class="social__link social__link--linkedin"
+                  href="#"
+                  aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="top-wrap__content">
+        <div class="top-wrap__text">
+          <p class="top-wrap__subheading">Welcome To Our Website</p>
+          <h1 class="top-wrap__heading">Bring Fun Life To<br />Your Kids</h1>
+          <p class="top-wrap__description">Amazing Playground for your kids</p>
+          <div class="top-wrap__action">
+            <button class="top-wrap__btn">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="activities">
+      <ul class="activities__list">
+        <li class="activities__item activities__item--red">
+          <article class="activities__card">
+            <div class="activities__badge">
+              <i
+                class="fa-solid fa-house activities__icon"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <h3 class="activities__title">Indoor Games</h3>
+            <p class="activities__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit…consecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsecteturconsectetur
+              consectetur consectetur consectetur vconsecteturconsectetur
+            </p>
+          </article>
+        </li>
+        <li class="activities__item activities__item--orange">
+          <article class="activities__card">
+            <div class="activities__badge">
+              <i class="fa-solid fa-cloud-sun activities__icon"></i>
+            </div>
+            <h3 class="activities__title">Outdoor Games</h3>
+            <p class="activities__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit…
+            </p>
+          </article>
+        </li>
+        <li class="activities__item activities__item--blue">
+          <article class="activities__card">
+            <div class="activities__badge">
+              <i class="fa-solid fa-campground activities__icon"></i>
+            </div>
+            <h3 class="activities__title">Indoor Games</h3>
+            <p class="activities__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit…
+            </p>
+          </article>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
