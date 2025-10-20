@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý người dùng</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #64748b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --rounded: 0.5rem;
+      --rounded-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: var(--dark);
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    .table-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background: var(--light);
+      border: 2px solid var(--border);
+      border-radius: var(--rounded);
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      min-width: 300px;
+    }
+
+    .search-container:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .search-container i {
+      color: var(--secondary);
+      margin-right: 0.5rem;
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      flex: 1;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .search-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      margin-left: 0.5rem;
+    }
+
+    .search-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .add-btn {
+      background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .add-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .table-wrapper {
+      background: white;
+      border-radius: var(--rounded-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: linear-gradient(135deg, var(--dark) 0%, #334155 100%);
+      color: white;
+      padding: 1rem 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+    }
+
+    td {
+      padding: 1rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr {
+      transition: all 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      transform: translateX(2px);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .action-btn {
+      padding: 0.5rem;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .edit-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+    }
+
+    .edit-btn:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow);
+    }
+
+    .delete-btn {
+      background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%);
+      color: white;
+    }
+
+    .delete-btn:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--rounded-lg);
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .modal-header h2 {
+      color: var(--dark);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--border);
+      border-radius: var(--rounded);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: var(--light);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      background: white;
+    }
+
+    .form-group input:disabled {
+      background: #f1f5f9;
+      color: var(--secondary);
+      cursor: not-allowed;
+    }
+
+    .error-message {
+      color: var(--danger);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: var(--light);
+      color: var(--secondary);
+      border: 2px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--secondary);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    .empty-state p {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+
+      .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-container {
+        min-width: auto;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 600px;
+      }
+
+      th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .modal-content {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><i class="fas fa-users"></i> Quản lý người dùng</h1>
+      </div>
+
+      <div class="content">
+        <div class="table-controls">
+          <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              class="search-input"
+              id="table-search-input"
+              placeholder="Tìm kiếm theo tên người dùng..."
+            />
+            <button class="search-btn" onclick="searchUser(accounts)">
+              Tìm kiếm
+            </button>
+          </div>
+          <button class="add-btn" onclick="openModalAddUser()">
+            <i class="fas fa-plus"></i>
+            Thêm người dùng
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table id="table">
+            <thead id="table__head"></thead>
+            <tbody id="table__body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Edit User -->
+    <div class="modal" id="modalEditUser"></div>
+
+    <!-- Modal Add User -->
+    <div class="modal" id="modal-add-user">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-user-plus"></i> Thêm người dùng mới</h2>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> Họ tên</label>
+            <input type="text" name="name" id="name" placeholder="Nhập họ tên đầy đủ" />
+          </div>
+          <div class="form-group">
+            <label for="birthday"><i class="fas fa-calendar"></i> Ngày sinh</label>
+            <input type="date" name="birthday" id="birthday" />
+          </div>
+          <div class="form-group">
+            <label for="address"><i class="fas fa-map-marker-alt"></i> Địa chỉ</label>
+            <input type="text" name="address" id="address" placeholder="Nhập địa chỉ" />
+          </div>
+          <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> Số điện thoại</label>
+            <input type="text" name="phone" id="phone" placeholder="Nhập số điện thoại" />
+          </div>
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" name="email" id="email" placeholder="Nhập địa chỉ email" />
+          </div>
+          <div class="error-message modal-add-user__errors"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-primary" onclick="addUser()">
+              <i class="fas fa-save"></i> Lưu
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="closeModalAddUser()">
+              <i class="fas fa-times"></i> Hủy
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const tableHead = [
+        "Họ tên",
+        "Ngày sinh",
+        "Địa chỉ",
+        "Số điện thoại",
+        "Email",
+        "Hành động",
+      ];
+      const accounts = [
+        {
+          id: "1241rghghgf3qw",
+          name: "Nguyễn Văn Anh",
+          birthday: "2002-02-01",
+          address: "Phú Châu, Ba Vì - Hà Nội",
+          phone: "0987654321",
+          email: "nguyenvananh@gmail.com",
+        },
+        {
+          id: "1241rghghgf3qx",
+          name: "Trần Đình Quý",
+          birthday: "2002-05-15",
+          address: "Phú Châu, Ba Vì - Hà Nội",
+          phone: "0987654322",
+          email: "trandinhquy@gmail.com",
+        },
+        {
+          id: "1241rghghgf3qy",
+          name: "Lê Văn Thành",
+          birthday: "2001-12-10",
+          address: "Phú Châu, Ba Vì - Hà Nội",
+          phone: "0987654323",
+          email: "levanthanh@gmail.com",
+        },
+      ];
+
+      renderTableHead(tableHead);
+      renderTableBody(accounts);
+
+      function renderTableHead(data) {
+        const thead = document.getElementById("table__head");
+        const tr = document.createElement("tr");
+        data.forEach((header) => {
+          tr.innerHTML += `<th>${header}</th>`;
+        });
+        thead.appendChild(tr);
+      }
+
+      function renderTableBody(users) {
+        const tbody = document.getElementById("table__body");
+        tbody.innerHTML = "";
+        
+        if (users.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="empty-state">
+                <i class="fas fa-users"></i>
+                <p>Không có dữ liệu người dùng</p>
+              </td>
+            </tr>
+          `;
+        } else {
+          users.forEach((user, index) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td><strong>${user.name}</strong></td>
+              <td>${formatDate(user.birthday)}</td>
+              <td>${user.address}</td>
+              <td>${user.phone}</td>
+              <td>${user.email}</td>
+              <td class="actions">
+                <button class="action-btn edit-btn" onclick="openModalEditUser('${user.id}','${user.name}','${user.birthday}','${user.address}','${user.phone}','${user.email}')" title="Chỉnh sửa">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" onclick="deleteUser('${user.id}', ${index})" title="Xóa">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('vi-VN');
+      }
+
+      function deleteUser(idUser, index) {
+        if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+          if (accounts[index].id === idUser) {
+            accounts.splice(index, 1);
+            renderTableBody(accounts);
+          } else {
+            alert("Xảy ra lỗi khi xóa người dùng");
+          }
+        }
+      }
+
+      function openModalEditUser(id, name, birthday, address, phone, email) {
+        const modalEditUser = document.getElementById("modalEditUser");
+        
+        modalEditUser.innerHTML = `
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2><i class="fas fa-user-edit"></i> Chỉnh sửa thông tin</h2>
+            </div>
+            <form>
+              <div class="form-group">
+                <label for="edit-name"><i class="fas fa-user"></i> Họ tên</label>
+                <input type="text" id="edit-name" name="name" value="${name}">
+              </div>
+              <div class="form-group">
+                <label for="edit-birthday"><i class="fas fa-calendar"></i> Ngày sinh</label>
+                <input type="date" id="edit-birthday" name="birthday" value="${birthday}">
+              </div>
+              <div class="form-group">
+                <label for="edit-address"><i class="fas fa-map-marker-alt"></i> Địa chỉ</label>
+                <input type="text" id="edit-address" name="address" value="${address}">
+              </div>
+              <div class="form-group">
+                <label for="edit-phone"><i class="fas fa-phone"></i> Số điện thoại</label>
+                <input type="text" id="edit-phone" name="phone" value="${phone}">
+              </div>
+              <div class="form-group">
+                <label for="edit-email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="edit-email" name="email" value="${email}" disabled>
+              </div>
+              <div class="modal-actions">
+                <button type="button" class="btn btn-primary" onclick="updateUser('${id}')">
+                  <i class="fas fa-save"></i> Lưu thay đổi
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeModalEditUser()">
+                  <i class="fas fa-times"></i> Hủy
+                </button>
+              </div>
+            </form>
+          </div>
+        `;
+        modalEditUser.classList.add("active");
+      }
+
+      function closeModalEditUser() {
+        const modalEditUser = document.getElementById("modalEditUser");
+        modalEditUser.classList.remove("active");
+      }
+
+      function updateUser(id) {
+        // Implementation for updating user
+        closeModalEditUser();
+      }
+
+      function openModalAddUser() {
+        const modalAddUser = document.getElementById("modal-add-user");
+        modalAddUser.classList.add("active");
+        // Clear form
+        document.getElementById("name").value = "";
+        document.getElementById("birthday").value = "";
+        document.getElementById("address").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("email").value = "";
+        document.querySelector(".modal-add-user__errors").innerHTML = "";
+      }
+
+      function closeModalAddUser() {
+        const modalAddUser = document.getElementById("modal-add-user");
+        modalAddUser.classList.remove("active");
+      }
+
+      function searchUser(users) {
+        const keyword = document.getElementById("table-search-input").value;
+        if (keyword.trim().length > 0) {
+          const searched = users.filter((user) =>
+            user.name.toLowerCase().includes(keyword.toLowerCase())
+          );
+          renderTableBody(searched);
+        } else {
+          renderTableBody(accounts);
+        }
+      }
+
+      function addUser() {
+        const newUser = {};
+        const nameRegex = /^[A-Za-zÀ-ỹ\s]{2,}$/;
+        const phoneRegex = /^0\d{9}$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        const name = document.getElementById("name").value;
+        const birthday = document.getElementById("birthday").value;
+        const address = document.getElementById("address").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const id = crypto.randomUUID();
+        const errors = document.querySelector(".modal-add-user__errors");
+
+        if (!nameRegex.test(name.trim())) {
+          errors.innerHTML = "Tên không hợp lệ (ít nhất 2 ký tự, chỉ chứa chữ cái và khoảng trắng)";
+          return;
+        }
+        if (checkBirthday(birthday)) {
+          errors.innerHTML = "Ngày sinh không hợp lệ (không được là ngày trong tương lai)";
+          return;
+        }
+        if (address.trim() === "" || address.trim().length < 3) {
+          errors.innerHTML = "Địa chỉ không hợp lệ (ít nhất 3 ký tự)";
+          return;
+        }
+        if (!phoneRegex.test(phone)) {
+          errors.innerHTML = "Số điện thoại không hợp lệ (10 số, bắt đầu bằng 0)";
+          return;
+        }
+        if (!emailRegex.test(email)) {
+          errors.innerHTML = "Email không hợp lệ";
+          return;
+        }
+
+        newUser.name = name;
+        newUser.birthday = birthday;
+        newUser.address = address;
+        newUser.phone = phone;
+        newUser.email = email;
+        newUser.id = id;
+
+        if (checkEmail(newUser.email)) {
+          errors.innerHTML = "Email này đã tồn tại trong hệ thống";
+        } else {
+          accounts.push(newUser);
+          errors.innerHTML = "";
+          alert("Thêm người dùng thành công!");
+          renderTableBody(accounts);
+          closeModalAddUser();
+        }
+
+        function checkBirthday(date) {
+          if (date.trim() === "") {
+            return true;
+          }
+          const birthday = new Date(date);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          return birthday >= today;
+        }
+
+        function checkEmail(email) {
+          return accounts.some((user) => user.email === email);
+        }
+      }
+
+      // Close modals when clicking outside
+      window.addEventListener('click', function(e) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+
+      // Search on Enter key
+      document.getElementById('table-search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          searchUser(accounts);
+        }
+      });
+    </script>
+  </body>
+</html>

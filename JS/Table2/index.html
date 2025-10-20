@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><i class="fas fa-users"></i> Quản lý người dùng</h1>
+      </div>
+
+      <div class="content">
+        <div class="table-controls">
+          <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              class="search-input"
+              id="table-search-input"
+              placeholder="Tìm kiếm theo tên người dùng..."
+            />
+            <button class="search-btn" onclick="searchUser(accounts)">
+              Tìm kiếm
+            </button>
+          </div>
+          <button class="add-btn" onclick="openModalAddUser()">
+            <i class="fas fa-plus"></i>
+            Thêm người dùng
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table id="table">
+            <thead id="table__head"></thead>
+            <tbody id="table__body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal__title"><i class="fas fa-user-plus"></i> Thêm người dùng mới</h2>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> Họ tên</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Nhập họ tên đầy đủ"
+            />
+          </div>
+          <div class="form-group">
+            <label for="birthday"
+              ><i class="fas fa-calendar"></i> Ngày sinh</label
+            >
+            <input type="date" name="birthday" id="birthday" />
+          </div>
+          <div class="form-group">
+            <label for="address"
+              ><i class="fas fa-map-marker-alt"></i> Địa chỉ</label
+            >
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Nhập địa chỉ"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone"
+              ><i class="fas fa-phone"></i> Số điện thoại</label
+            >
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="Nhập số điện thoại"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Nhập địa chỉ email"
+            />
+          </div>
+          <div class="error-message modal-add-user__errors"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn btn-primary" onclick="addUser()">
+              <i class="fas fa-save"></i> Lưu
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="closeModalAddUser()"
+            >
+              <i class="fas fa-times"></i> Hủy
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup-comfirm">
+      <div class="popup-comfirm__content">
+        <p class="popup-comfirm__mess"></p>
+        <div class="popup-comfirm__actions">
+          <button class="popup-comfirm__btn popup-comfirm__btn-primary">
+            Xóa
+          </button>
+          <button class="popup-comfirm__btn popup-comfirm__btn-secondary">
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="popup-notify">
+
+      <p></p>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

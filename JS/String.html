@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <style>
+    body {
+      place-items: center;
+    }
+
+    .infor {
+      width: 20rem;
+    }
+
+    .infor__field + .infor__field {
+      margin-top: 2rem;
+    }
+
+    .infor__phone,
+    .infor__password,
+    .infor__name {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(184, 207, 228);
+      padding: 0 0.5rem;
+      border-radius: 4px;
+    }
+
+    #name,
+    #phone,
+    #password {
+      letter-spacing: 2px;
+    }
+
+    .fa-solid--hiden {
+      display: none;
+    }
+  </style>
+
+  <body>
+    <div class="infor">
+      <h1>Thông tin người dùng</h1>
+      <div class="infor__field">
+        <label
+          >Họ và tên
+          <div class="infor__name">
+            <p id="name"></p>
+            <i
+              class="fa-solid fa-eye"
+              id="name-icon-eye"
+              onclick="showHideName()"
+            ></i>
+          </div>
+        </label>
+      </div>
+      <div class="infor__field">
+        <label
+          >Số điện thoại
+          <div class="infor__phone">
+            <p id="phone"></p>
+            <i
+              class="fa-solid fa-eye"
+              id="phone-icon-eye"
+              onclick="showHidePhone()"
+            ></i>
+          </div>
+        </label>
+      </div>
+      <div class="infor__field">
+        <label
+          >Mật khẩu
+          <div class="infor__password">
+            <p id="password"></p>
+            <i
+              class="fa-solid fa-eye"
+              id="password-icon-eye"
+              onclick="showHidePassword()"
+            ></i>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <script>
+      const account = {
+        name: "Nguyễn Văn Quý",
+        phone: "0987654321",
+        password: "daylamatkhauhaha",
+      };
+
+      const name = document.getElementById("name");
+      name.innerHTML = account.name;
+      const phone = document.getElementById("phone");
+      phone.innerHTML = account.phone;
+      const password = document.getElementById("password");
+      password.innerHTML = account.password;
+
+      function showHidePassword() {
+        let eyeIcon = document.getElementById("password-icon-eye");
+        let hiddenPasword = "*".repeat(account.password.length);
+
+        if (eyeIcon.classList.contains("fa-eye")) {
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+          password.innerHTML = hiddenPasword;
+        } else {
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+          password.innerHTML = account.password;
+        }
+      }
+
+      function showHidePhone() {
+        let eyeIcon = document.getElementById("phone-icon-eye");
+        let hiddenPhone = account.phone
+          .slice(0, 2)
+          .concat(
+            "*".repeat(account.phone.length - 5),
+            account.phone.slice(-3)
+          );
+
+        if (eyeIcon.classList.contains("fa-eye")) {
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+          phone.innerHTML = hiddenPhone;
+        } else {
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+          phone.innerHTML = account.phone;
+        }
+      }
+
+      function showHideName() {
+        let eyeIcon = document.getElementById("name-icon-eye");
+        let indexLastName = account.name.lastIndexOf(" ") + 1;
+        let lastName = account.name.slice(indexLastName);
+        let hiddenName = "*".repeat(indexLastName).concat(lastName);
+        if (eyeIcon.classList.contains("fa-eye")) {
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+          name.innerHTML = hiddenName;
+        } else {
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+          name.innerHTML = account.name;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    /* Khung ảnh */
-.cut{
-  position: relative;
-  overflow: hidden;      /* cắt phần bị tràn */
-  background: #fff;      /* TRÙNG màu nền trang */
-  height: 420px;         /* demo */
-}
-.cut > img{
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Country Info Finder</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        padding: 2rem;
+        text-align: center;
+      }
+      .search-box {
+        margin-bottom: 1.5rem;
+      }
+      input {
+        padding: 0.5rem;
+        font-size: smaller;
+        width: 250px;
 
-/* Cái “đĩa” trắng ăn vào mép trái */
-.cut::before{
-  content: "";
-  position: absolute;
-  left: -60vw;           /* đẩy tâm tròn ra ngoài bên trái */
-  top: 50%; transform: translateY(-50%);
-  width: 120vw; height: 120vw;  /* tròn siêu to */
-  border-radius: 50%;
-  background: #fff;      /* cùng màu nền */
-  pointer-events: none;
-}
+      }
+      button {
+        padding: 0.5rem 1rem;
+        margin-left: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .card {
+        max-width: 400px;
+        margin: 0 auto;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      .card img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🌍 Tìm kiếm thông tin quốc gia</h1>
 
-</style>
-<body>
-    <details>
-  <summary>Click me</summary>
-  <p>Hello world</p>
-</details>
-</div>
+    <div class="search-box">
+      <div class="search-box__form">
+      <label for="isoInput">Mã quốc gia</label>
+      <input id="isoInput" name="isoInput" placeholder="Nhập mã quốc gia (ví dụ: vn)" />
+      <p class="err"></p>
+      </div>
+      
+      <button onclick="searchCountry()">Search</button>
+    </div>
 
-</body>
+    <div id="result"></div>
+
+    <script>
+      function searchCountry() {
+        const code = document.getElementById("isoInput").value.trim();
+        if()
+        if (!code) return;
+
+        fetch(`https://restcountries.com/v3.1/alpha/${code}`)
+          .then((res) => res.json())
+          .then((data) => {
+            const country = data[0];
+            document.getElementById("result").innerHTML = `
+            <div class="card">
+              <h2>${country.name.common} (${country.cca2})</h2>
+              <img src="${country.flags.svg}" alt="Flag">
+              <p><b>Official:</b> ${country.name.official}</p>
+              <p><b>Capital:</b> ${country.capital?.[0] || "N/A"}</p>
+              <p><b>Population:</b> ${country.population.toLocaleString()}</p>
+              <p><b>Languages:</b> ${
+                country.languages
+                  ? Object.values(country.languages).join(", ")
+                  : "N/A"
+              }</p>
+              <p><b>Currency:</b> ${
+                country.currencies
+                  ? Object.values(country.currencies)
+                      .map((c) => c.name + " (" + c.symbol + ")")
+                      .join(", ")
+                  : "N/A"
+              }</p>
+              <p><a href="${
+                country.maps.googleMaps
+              }" target="_blank">View on Google Maps</a></p>
+            </div>
+          `;
+          })
+          .catch((err) => {
+            document.getElementById("result").innerHTML =
+              "<p style='color:red'>Country not found!</p>";
+          });
+      }
+    </script>
+  </body>
 </html>

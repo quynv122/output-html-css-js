@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS If Conditions</title>
+  </head>
+  <style>
+    body {
+      padding: 15%;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      background-color: antiquewhite;
+      padding: 4rem 15%;
+      border-radius: 30px;
+    }
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .input-field + .input-field {
+      margin-top: 2rem;
+    }
+    .input-field-agree {
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+    }
+    input,
+    select {
+      height: 2rem;
+    }
+    button {
+      margin-top: 2rem;
+    }
+    form div:last-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      padding: 0.8rem 2rem;
+      border-radius: 12px;
+      border: none;
+      background-color: rgb(26, 142, 250);
+      color: white;
+      font-size: larger;
+    }
+  </style>
+  <body>
+    <h1>Form đăng ký & tính phí dịch vụ</h1>
+    <form>
+      <div class="input-field">
+        <label for="fname">Họ tên</label>
+        <input type="text" name="fname" id="fname" />
+      </div>
+      <div class="input-field">
+        <label for="age">Tuổi</label>
+        <input type="number" name="age" id="age" />
+      </div>
+      <div class="input-field">
+        <label for="services">Chọn dịch vụ</label>
+        <select name="services" id="services">
+          <option value="0">Basic</option>
+          <option value="1">Plus</option>
+          <option value="2">Premium</option>
+        </select>
+      </div>
+      <div class="input-field input-field-agree">
+        <label for="agree">Đồng ý với điều khoản </label>
+        <input type="checkbox" id="agree" name="agree" />
+      </div>
+      <div>
+        <button type="button" id="submit">Tính phí và kiểm tra</button>
+      </div>
+    </form>
+    <div>
+      <h2>Kết Quả: <span id="result"></span></h2>
+    </div>
+    <script>
+      document.getElementById("submit").addEventListener("click", () => {
+        checkForm();
+      });
+
+      function checkForm() {
+        let fnameRegex = /^[A-Za-zÀ-ỹ\s]{2,}$/;
+        let name = document.getElementById("fname").value;
+        let age = Number(document.getElementById("age").value);
+        let option = document.getElementById("services").value;
+        let agree = document.getElementById("agree").checked;
+        let reusult = document.getElementById("result");
+        if (name === "" || !fnameRegex.test(name)) {
+          reusult.innerText = " Vui lòng nhập họ tên";
+        } else if (isNaN(age) || age < 0) {
+          reusult.innerText = "Vui lòng nhập tuổi";
+        } else if (age < 18 || age > 100) {
+          reusult.innerText = "Tuổi không hợp lệ";
+        } else if (!agree) {
+          reusult.innerText = "Vui lòng đồng ý với điều khoản";
+        } else {
+            let price = pricing(option)
+          reusult.innerText = `Đăng ký thanh công dịch vụ với giá: ${price}`
+        }
+      }
+
+      function pricing(option) {
+        let price = "";
+        switch (option) {
+          case "0":
+            price = "200k";
+            break;
+
+          case "1":
+            price = "300k";
+            break;
+
+          case "2":
+            price = "400k";
+            break;
+        }
+        return price;
+      }
+    </script>
+  </body>
+</html>

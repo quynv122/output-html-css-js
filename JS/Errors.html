@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Errors</title>
+  </head>
+  <style>
+    body {
+      width: 100vw;
+      place-items: center;
+    }
+    form {
+      width: 20%;
+    }
+    .input-field {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 0.5rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 2rem;
+    }
+    .errors {
+      color: red;
+    }
+  </style>
+  <body>
+    <h2>Kiểm tra số điện thoại</h2>
+    <form>
+      <div class="input-field">
+        <label for="phone">Nhập số điện thoại</label>
+        <input id="phone" type="text" name="phone" />
+      </div>
+      <p class="errors"></p>
+      <button type="button" onclick="testPhone()">
+        Kiểm tra số điện thoại
+      </button>
+    </form>
+
+    <script>
+      const ewqe = document.getElementsByClassName("errors")[0];
+      function testPhone() {
+        const input = document.getElementById("phone").value;
+        const errors = document.getElementsByClassName("errors")[0];
+        const numberRegex = /^[0-9]+$/;
+        try {
+          errors.innerText = "";
+          if (input.trim() === "") throw "Vui lòng nhập số điện thoại";
+          if (input.trim().length > 10 || input.trim().length < 10)
+            throw "Số điện thoại phải là 10 số";
+          if (!input.trim().startsWith("0"))
+            throw "Số điện phải phải bắt đầu bằng 0";
+          if (!numberRegex.test(input.trim()))
+            throw "Số điện thoại không hợp lệ";
+
+          alert("Số điện thoại hợp lệ");
+        } catch (err) {
+          errors.innerText = err;
+        }
+      }
+    </script>
+  </body>
+</html>
