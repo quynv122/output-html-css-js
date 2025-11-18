@@ -11,36 +11,33 @@
 </script>
 
 <template>
-    <div class="container">
+  <div class="container">
     <h2>V-for render danh sách sản phẩm</h2>
-   <ul class="list">
-    <li class="item" v-for="product in products">
-        <p>Tên sản phẩm:  {{ product.name }} </p>
+    <ul class="list">
+      <li class="item" v-for="product in products">
+        <p>Tên sản phẩm: {{ product.name }}</p>
         <p>Giá bán: {{ product.price }}đ</p>
-
-    </li>
-   </ul>
-    </div>
-   
-
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.list{
-    list-style-type: none;
+.list {
+  list-style-type: none;
 }
-.item{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    background-color:black;
-    border-bottom: 1px solid white;
-    padding: 0 20px;
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: black;
+  border-bottom: 1px solid white;
+  padding: 0 20px;
 }
 </style>
